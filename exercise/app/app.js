@@ -10,10 +10,23 @@ var AppComponent = ng.core
   });
 
 
+/**
+  * Next add the component to a module
+  */
+var AppModule =
+  ng.core.NgModule({
+    imports: [ ng.platformBrowser.BrowserModule ],
+    declarations: [ AppComponent ],
+    bootstrap: [ AppComponent ]
+  })
+  .Class({
+    constructor: function() {}
+  });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  ng.platform.browser.bootstrap(AppComponent, []);
-});
-
-
+/**
+  * Finally bootstrap
+  */
+ng.platformBrowserDynamic
+  .platformBrowserDynamic()
+  .bootstrapModule(AppModule);
