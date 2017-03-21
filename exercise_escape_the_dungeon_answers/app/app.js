@@ -32,16 +32,16 @@ var AppComponent = ng.core
     template:
     `
       <ul>
-        <li>
+        <li [hidden]="!location.exits.east">
           <button (click)="protagonist.moveEast()">East</button>
         </li>
-        <li>
+        <li [hidden]="!location.exits.west">
           <button (click)="protagonist.moveWest()">West</button>
         </li>
-        <li>
+        <li [hidden]="!location.exits.north">
           <button (click)="protagonist.moveNorth()">North</button>
         </li>
-        <li>
+        <li [hidden]="!location.exits.south">
           <button (click)="protagonist.moveSouth()">South</button>
         </li>
       </ul>
@@ -53,6 +53,7 @@ var AppComponent = ng.core
   .Class({
     constructor: function() {
       this.protagonist = heroModel;
+      this.location = locationModel;
     }
   });
 
