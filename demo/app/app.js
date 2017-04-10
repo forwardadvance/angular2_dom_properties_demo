@@ -9,29 +9,59 @@
 // bind syntax
 // style.color
 // <a on-click="x=!x" [textContent]="x ? 'show': 'hide'">Swap</a>{{x}}
-// colspan
+// <td [attr.colspan]="2+2">hello</td>
+// <td [attr.fdsfdsfds]="2+2">hello</td>
 
 
+// <input
+//   on-input="value = $event.target.value"
+//   [value]='value'
+//   />
+// <br />
+// <button
+//   [disabled]='!value'>
+//     Click me!
+// </button>
+// <div
+//   [hidden]="false"
+//   [style.color]='value'>
+//     {{value}}!
+// </div>
 var AppComponent = ng.core
   .Component({
     selector: "app",
     template:
     `
-      <a on-click="isHidden=!isHidden" [textContent]="isHidden ? 'show': 'hide'">Swap</a>
-      <div [style.color]="color" [hidden]="isHidden">Hello there</div>
-      <!-- <input [disabled]="true" />
-      <div [textContent]="'Hello from the textContent'">Hello</div>
-      <td [attr.colspan]="2+2">hello</td>
-      <td [attr.fdsfdsfds]="2+2">hello</td> -->
+      <a (click)="hidden = !hidden">Show</a>
+      <p [hidden]="hidden"
+        [innerText]='value'
+        [style.color]="value">
+          Hello!</p>
+
+      <input
+        (input)="value = $event.target.value"
+        [value]="value"
+        />
+
+      <button [disabled]="!value">Submit</button>
+
+      <td [attr.hfdshgfdhgfhgfd]="2">hello</td>
     `
   })
   .Class({
     constructor: function() {
-      var vm = this;
-      vm.x = false;
-      vm.color = 'blue';
+      this.hidden = false
+      this.value = "green";
+      // this.color = 'red'
+      // this.href = 'http://www.google.co.uk'
+      // this.getHref = function() {
+      //   return  'abc123'
+      // }
     }
   })
+
+
+
 
 /**
   * Next add the component to a module
@@ -54,6 +84,10 @@ ng.platformBrowserDynamic
   .platformBrowserDynamic()
   .bootstrapModule(AppModule);
 
+// <a on-click="isHidden=!isHidden" [textContent]="isHidden ? 'show': 'hide'">Swap</a>
+// <div [style.color]="color" [hidden]="isHidden">Hello there</div>
+// <input [disabled]="true" />
+// <div [textContent]="'Hello from the textContent'">Hello</div>
 
 // Initial State
 // var AppComponent = ng.core
@@ -74,4 +108,6 @@ ng.platformBrowserDynamic
 // document.addEventListener('DOMContentLoaded', function() {
 //   ng.platform.browser.bootstrap(AppComponent, [])
 // });
+
+
 
