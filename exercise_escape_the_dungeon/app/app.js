@@ -22,9 +22,10 @@ var locationModel = {
   name: "Nondescript Corridor",
   description: "It is very dark. To the north you can just make out a faint glimmer of golden light.",
   exits: {
-    north:true
+    north:true,
+    south:false
   }
-}
+};
 
 var AppComponent = ng.core
   .Component({

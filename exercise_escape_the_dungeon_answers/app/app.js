@@ -32,17 +32,17 @@ var AppComponent = ng.core
     template:
     `
       <ul>
-        <li [hidden]="!location.exits.east">
-          <button (click)="protagonist.moveEast()">East</button>
+        <li>
+          <button [disabled]="!location.exits.east" (click)="protagonist.moveEast()">East</button>
         </li>
-        <li [hidden]="!location.exits.west">
-          <button (click)="protagonist.moveWest()">West</button>
+        <li>
+          <button [disabled]="!location.exits.west" (click)="protagonist.moveWest()">West</button>
         </li>
-        <li [hidden]="!location.exits.north">
-          <button (click)="protagonist.moveNorth()">North</button>
+        <li>
+          <button [disabled]="!location.exits.north" (click)="protagonist.moveNorth()">North</button>
         </li>
-        <li [hidden]="!location.exits.south">
-          <button (click)="protagonist.moveSouth()">South</button>
+        <li>
+          <button [disabled]="!location.exits.south" (click)="protagonist.moveSouth()">South</button>
         </li>
       </ul>
 
